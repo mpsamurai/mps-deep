@@ -18,7 +18,7 @@
 
 
 import numpy as np
-from nn.error_funcs import SquaredError
+from nn.error_funcs import SquaredError, CrossEntropy
 from nn.layers import LogisticLayer, TanhLayer, SoftmaxLayer
 
 
@@ -44,6 +44,7 @@ class Network:
 
     _ERROR_FUNCS = [
         SquaredError(),
+        CrossEntropy(),
     ]
 
     def __init__(self, name, n_input, error_func_name, epsilon):

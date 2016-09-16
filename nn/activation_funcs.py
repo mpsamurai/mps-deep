@@ -66,7 +66,10 @@ class Softmax(Function):
     def get_value(self, s):
         _s = s - np.max(s)
         exp_s = np.exp(_s)
-        return exp_s / np.sum(exp_s)
+        value = exp_s / np.sum(exp_s)
+        value[value < 10e-7] = 10e-7
+        value[value > 10e+7] = 10e+7
+        return value / np.sum(value)
 
     def get_derivative(self, y):
         assert isinstance(y, np.ndarray) and y.shape[1] == 1

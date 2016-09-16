@@ -31,21 +31,11 @@ class SquaredError(Function):
         return -(t - y)
 
 
-# def se(t, y):
-#     return ((t - y).T @ (t - y)).flatten()[0] / 2.0
-# se.name = 'se'
-#
-#
-# def d_se(t, y):
-#     return -(t - y)
-# d_se.name = 'se'
-#
-#
-# def cross_entropy(t, y):
-#     return (-1.0) * np.sum(t * np.log(y) + (1.0 - t) * np.log(1 - y))
-# cross_entropy.name = 'cross_entropy'
-#
-#
-# def d_cross_entropy(t, y):
-#     return (1.0 - t) / (1.0 - y) - t / y
-# d_cross_entropy.name = 'cross_entropy'
+class CrossEntropy(Function):
+    name = 'cross_entropy'
+
+    def get_value(self, t, y):
+        return -t @ np.log(y).T
+
+    def get_derivative(self, t, y):
+        return - t/y

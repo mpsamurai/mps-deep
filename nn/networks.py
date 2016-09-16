@@ -42,8 +42,6 @@ class Network:
         #RectifierLayer,
     ]
 
-    _LAYER_CLASSES_DICT = {}
-
     _ERROR_FUNCS = [
         SquaredError(),
     ]

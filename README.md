@@ -16,6 +16,10 @@ Only numpy is used to implement.
 * Squared error
 * Cross entropy
 
+## Other features
+
+* Export/Import network structure to/from JSON.
+
 # License
 
 The MIT License (MIT)

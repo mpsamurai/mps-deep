@@ -205,7 +205,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-img_*
+**/img_*
+**/network_jsons
 mnist_examples/*
-network_jsons/*
-

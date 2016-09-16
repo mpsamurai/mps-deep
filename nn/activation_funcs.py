@@ -88,45 +88,6 @@ class Rectifier(Function):
         val = deepcopy(y)
         val[val > 0.0] = 1.0
         val[val <= 0.0] = 0.0
-        return val
-
-
-# def logistic(s):
-#     return 1/(1 + np.exp(-s))
-#
-#
-# def d_logistic(y):
-#     return y * (1 - y)
-#
-#
-# def tanh(s, alpha, beta):
-#     return alpha * np.tanh(beta * s)
-#
-#
-# def d_tanh(y, alpha, beta):
-#     jacobian = np.zeros(shape=(y.shape[0], y.shape[0]))
-#     jacobian[np.diag_indices(y.shape[0])] = alpha * beta * (1 - np.power(np.tanh(beta * y.flatten()), 2))
-#     return jacobian
-#
-#
-# def softmax(s):
-#     _s = s - np.max(s)
-#     exp_s = np.exp(_s)
-#     return exp_s / np.sum(exp_s)
-#
-#
-# def d_softmax(y):
-#     return y * np.ones(shape=(y.shape[0], y.shape[0])) - y @ y.T
-#
-#
-# def rectifier(s):
-#     val = deepcopy(s)
-#     val[val < 0.0] = 0.0
-#     return val
-#
-#
-# def d_rectifier(s):
-#     val = deepcopy(s)
-#     val[val > 0.0] = 1.0
-#     val[val <= 0.0] = 0.0
-#     return val
+        y_diag = np.zeros(shape=(y.shape[0], y.shape[0]))
+        np.fill_diagonal(y_diag, val.flatten())
+        return y_diag

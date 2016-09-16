@@ -19,7 +19,7 @@
 
 import numpy as np
 from nn.error_funcs import SquaredError, CrossEntropy
-from nn.layers import LogisticLayer, TanhLayer, SoftmaxLayer
+from nn.layers import LogisticLayer, TanhLayer, SoftmaxLayer, RectifierLayer
 
 
 class LayerTypeDoesNotExist(KeyError):
@@ -39,7 +39,7 @@ class Network:
         LogisticLayer,
         TanhLayer,
         SoftmaxLayer,
-        #RectifierLayer,
+        RectifierLayer,
     ]
 
     _ERROR_FUNCS = [

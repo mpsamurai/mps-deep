@@ -10,7 +10,7 @@ Only numpy is used to implement.
 * Logistic sigmoid layer
 * Tanh layer
 * Softmax layer
-* Rectifier Layer (ReLU)
+* Rectifier layer (ReLU)
 
 ## Supported error functions
 

@@ -18,7 +18,7 @@
 
 
 import numpy as np
-from nn.activation_funcs import Logistic, Tanh, Softmax
+from nn.activation_funcs import Logistic, Tanh, Softmax, Rectifier
 
 
 class BaseLayer:
@@ -143,9 +143,9 @@ class SoftmaxLayer(BaseLayer):
     def __init__(self, n_output, n_prev_output):
         super().__init__(n_output, n_prev_output, Softmax())
 
-#
-# class RectifierLayer(BaseLayer):
-#     name = 'rectifier'
-#
-#     def __init__(self, n_output, n_prev_output):
-#         super().__init__(n_output, n_prev_output, rectifier, d_rectifier)
+
+class RectifierLayer(BaseLayer):
+    name = 'rectifier'
+
+    def __init__(self, n_output, n_prev_output):
+        super().__init__(n_output, n_prev_output, Rectifier())

@@ -78,6 +78,19 @@ class Softmax(Function):
         return y_diag - y @ y.T
 
 
+class Rectifier(Function):
+    def get_value(self, s):
+        val = deepcopy(s)
+        val[val < 0.0] = 0.0
+        return val
+
+    def get_derivative(self, y):
+        val = deepcopy(y)
+        val[val > 0.0] = 1.0
+        val[val <= 0.0] = 0.0
+        return val
+
+
 # def logistic(s):
 #     return 1/(1 + np.exp(-s))
 #

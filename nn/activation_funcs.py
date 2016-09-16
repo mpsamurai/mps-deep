@@ -55,9 +55,9 @@ class Tanh(Function):
 
     def get_derivative(self, y):
         assert isinstance(y, np.ndarray) and y.shape[1] == 1
-        jacobian = np.zeros(shape=(y.shape[0], y.shape[0]))
-        jacobian[np.diag_indices(y.shape[0])] = self._alpha * self._beta * (1 - np.power(np.tanh(self._beta * y.flatten()), 2))
-        return jacobian
+        derivative = np.zeros(shape=(y.shape[0], y.shape[0]))
+        derivative[np.diag_indices(y.shape[0])] = self._alpha * self._beta * (1 - np.power(np.tanh(self._beta * y.flatten()), 2))
+        return derivative
 
 
 class Softmax(Function):
@@ -73,7 +73,9 @@ class Softmax(Function):
 
     def get_derivative(self, y):
         assert isinstance(y, np.ndarray) and y.shape[1] == 1
-        return y * np.ones(shape=(y.shape[0], y.shape[0])) - y @ y.T
+        y_diag = np.zeros(shape=(y.shape[0], y.shape[0]))
+        np.fill_diagonal(y_diag, y.flatten())
+        return y_diag - y @ y.T
 
 
 # def logistic(s):

@@ -35,7 +35,7 @@ class CrossEntropy(Function):
     name = 'cross_entropy'
 
     def get_value(self, t, y):
-        return -t @ np.log(y).T
+        return -(t.T @ np.log(y)).flatten()[0]
 
     def get_derivative(self, t, y):
         return - t/y

@@ -2,7 +2,7 @@
 
 ## About
 
-A Deep learning library for education about Python and mathematics.
+A Deep learning library for educational use.
 Only numpy is used to implement.
 
 ## Supported layers

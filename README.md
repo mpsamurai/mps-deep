@@ -24,7 +24,7 @@ Only numpy is used to implement.
 # License
 
 The MIT License (MIT)
-Copyright (c) 2016 Junya Kaneko <jyuneko@hotmail.com>
+Copyright (c) 2016 Junya Kaneko <junya@mpsamurai.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the "Software"), 
